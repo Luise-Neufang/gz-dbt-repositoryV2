@@ -23,13 +23,17 @@ sources:
             description: the quantity of products purchased for this order
       - name: product
         identifier: raw_gz_product
-        description:  products of Greenweez
+        description: products of greenweez
+        tests:
+          - unique:
+              column_name: products_id
+          - not_null:
+              column_name:
+              - products_id
+              - purchase_price
         columns:
           - name: products_id
             description: primary key of the table
-            tests:
-              - unique
-              - not_null
           - name: purchase_price
             description: the purchase price of the product
       - name: ship
